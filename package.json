@@ -1,0 +1,13 @@
+{
+  "name": "notepad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "ammirzaei",
+  "license": "ISC",
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  }
+}
