@@ -1,8 +1,7 @@
 {
   "name": "notepad",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "دفترچه یادداشت با حافظه مرورگر",
   "scripts": {},
   "keywords": [],
   "author": "ammirzaei",
