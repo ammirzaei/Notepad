@@ -7,9 +7,10 @@ const note = document.querySelector('#note');
 const listNotes = document.getElementById('list-notes');
 const statusNote = document.getElementById('status-note');
 const count = document.getElementById('count');
+const imgEmpty = document.querySelector('.img-empty');
 
 
-// Event Listeners
+// set Event Listeners
 myEvents();
 
 // Functions
@@ -18,6 +19,7 @@ myEvents();
 function myEvents() {
     form.addEventListener('submit', addNote);
     window.addEventListener('load', initializeNotes);
+    listNotes.addEventListener('click', removeNote);
 }
 
 // Func : Add Note
@@ -73,6 +75,12 @@ function fetchNotes() {
 // Func : Saving notes to LocalStorage
 function saveNotes(notes) {
     localStorage.setItem(key, JSON.stringify(notes));
+
+    // set count notes
+    count.innerHTML = notes.length;
+
+    // image Empty
+    imageEmpty(notes.length);
 }
 
 // Func : Create note Element
@@ -83,13 +91,12 @@ function createNoteElement(note) {
 
     // create span : note text
     const span = document.createElement('span');
-    span.id = 'note';
     span.appendChild(document.createTextNode(note));
 
     // create i : removed note
     const i = document.createElement('i');
     i.id = 'remove-note';
-    i.classList = 'fa fa-trash';
+    i.classList = 'fa fa-2x fa-trash';
 
     // append span & i Element to li Element
     li.appendChild(span);
@@ -124,4 +131,41 @@ function initializeNotes() {
 
     // set count notes
     count.innerHTML = notes.length;
+
+    // image Empty
+    imageEmpty(notes.length);
+}
+
+// Func : removed note
+function removeNote(e) {
+    if (e.target.id.includes('remove-note')) {
+        // find note
+        const parent = e.target.parentElement;
+        const note = parent.firstElementChild;
+
+        // remove from localStorage
+        removeFromLocalStorage(note.textContent);
+
+        // remove from list notes
+        parent.remove();
+    }
+}
+
+// Func : removed note from localStorage
+function removeFromLocalStorage(note) {
+    const notes = fetchNotes(); // get all notes in localStorage
+
+    // filtered notes 
+    const notesFilter = notes.filter(n => n !== note);
+
+    // save new notes to localStorage
+    saveNotes(notesFilter);
+}
+
+// Func : image empty
+function imageEmpty(length) {
+    if (length > 0)
+        imgEmpty.style.display = 'none';
+    else
+        imgEmpty.style.display = 'block';
 }

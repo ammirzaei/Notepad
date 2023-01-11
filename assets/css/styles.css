@@ -109,9 +109,9 @@ textarea {
 
 .note {
   background-color: #c55ffc;
-  margin: 5px;
-  border-radius: 2px;
-  padding: 10px 8px;
+  margin: 10px;
+  border-radius: 15px;
+  padding: 15px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -125,6 +125,11 @@ textarea {
 
 .note .fa:hover {
   color: #db1f48;
+}
+
+.img-empty{
+    width: 100%;
+    /* display: none; */
 }
 /* End List Notes Section */
 
