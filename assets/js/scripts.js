@@ -6,6 +6,7 @@ const form = document.getElementById('form-note');
 const note = document.querySelector('#note');
 const listNotes = document.getElementById('list-notes');
 const statusNote = document.getElementById('status-note');
+const count = document.getElementById('count');
 
 
 // Event Listeners
@@ -120,4 +121,7 @@ function initializeNotes() {
     notes.forEach(note => {
         createNoteElement(note);
     });
+
+    // set count notes
+    count.innerHTML = notes.length;
 }
