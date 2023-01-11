@@ -16,6 +16,7 @@
 }
 body {
   direction: rtl;
+  overflow: hidden;
 }
 
 ul,
@@ -70,10 +71,10 @@ header {
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
   border: 1px solid silver;
   width: 70%;
-  height: 60%;
+  height: 75vh;
 }
 
 .btn-add {
@@ -88,16 +89,20 @@ textarea {
   font-size: medium;
 }
 
-.label-note-success{
-    color: green;
+.label-note-success {
+  color: green;
 }
-.label-note-unsuccess{
-    color: red;
+.label-note-unsuccess {
+  color: red;
 }
 
 /* End Add Note Section */
 
 /* Start List Notes Section */
+.list-notes {
+  overflow-y: scroll;
+  height: 89vh;
+}
 .ul-notes {
   padding: 1rem;
 }
@@ -125,6 +130,9 @@ textarea {
 
 /* Start Responsive */
 @media only screen and (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
   main {
     grid-template-columns: 1fr;
   }
@@ -132,12 +140,20 @@ textarea {
     width: 100%;
     position: absolute;
   }
-  .list-notes{
+  .list-notes {
     order: 1;
+    height: auto;
+    overflow-y: hidden;
   }
   .img-notes {
     width: 40px;
     height: 40px;
+  }
+  textarea {
+    height: 50vh;
+  }
+  .add-notes form {
+    padding-bottom: 5rem;
   }
 }
 /* End Responsive */

@@ -16,6 +16,7 @@ myEvents();
 // Func : list EventListeners
 function myEvents() {
     form.addEventListener('submit', addNote);
+    window.addEventListener('load', initializeNotes);
 }
 
 // Func : Add Note
@@ -111,4 +112,12 @@ function showStatusNote(status) {
     setTimeout(() => {
         statusNote.innerHTML = '';
     }, 4000);
+}
+
+// Func : initialize notes
+function initializeNotes() {
+    const notes = fetchNotes();
+    notes.forEach(note => {
+        createNoteElement(note);
+    });
 }
