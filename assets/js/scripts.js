@@ -31,13 +31,15 @@ function addNote(e) {
 
     if (noteValue != '') {
         // add to localStorage
-        addNoteToLocalStorage(noteValue);
+        addNoteToLocalStorage(noteValue, (status) => {
+            if (status) {
+                // add to list Notes elements
+                createNoteElement(noteValue);
 
-        // add to list Notes elements
-        createNoteElement(noteValue);
-
-        // show success message
-        showStatusNote(true);
+                // show success message
+                showStatusNote(true);
+            }
+        });
     } else {
         // show unsuccess message
         showStatusNote(false);
@@ -48,16 +50,18 @@ function addNote(e) {
 }
 
 // Func : add note to LocalStorage
-function addNoteToLocalStorage(note) {
+function addNoteToLocalStorage(note, callback) {
     const notes = fetchNotes(); // get all notes in localStorage
 
     // validation for not duplicated
-    if (!notes.find(n => n === note)) {
+    if (!notes.find(n => n == note)) {
         // push to notes
         notes.push(note);
 
         // save all notes to localStorage
         saveNotes(notes);
+
+        callback(true);
     }
 }
 
@@ -164,6 +168,7 @@ function removeFromLocalStorage(note) {
 
 // Func : image empty
 function imageEmpty(length) {
+    // check empty
     if (length > 0)
         imgEmpty.style.display = 'none';
     else
