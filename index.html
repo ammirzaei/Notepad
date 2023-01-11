@@ -5,10 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دفترچه یادداشت</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
-
+    <header>
+        <div class="count-notes">
+            <span id="count">
+                5
+            </span>
+        </div>
+        <h1>دفترچه یادداشت</h1>
+        <img src="assets/img/post-it.png" alt="دفترچه یادداشت" class="img-notes">
+    </header>
+    <main>
+        <section class="list-notes">
+            <ul class="ul-notes">
+                <li class="note">
+                    <span id="note">تست عنوان</span>
+                    <i class="fa fa-trash" id="remove"></i>
+                </li>
+                <li class="note">
+                    <span id="note">تست عنوان</span>
+                    <i class="fa fa-trash" id="remove"></i>
+                </li>
+                <li class="note">
+                    <span id="note">تست عنوان</span>
+                    <i class="fa fa-trash" id="remove"></i>
+                </li>
+            </ul>
+        </section>
+        <section class="add-notes">
+           <form action="#">
+            <textarea name="note" id="note" cols="30" rows="10"></textarea>
+            <button type="submit" class="btn-add">افزودن</button>
+           </form>
+        </section>
+    </main>
     <script src="assets/js/scripts.js" defer></script>
 </body>
 </html>

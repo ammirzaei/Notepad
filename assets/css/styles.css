@@ -1,18 +1,135 @@
-*{
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Vazir-bold";
 }
 @font-face {
-    font-family: Vazir-bold;
-    src: url('../fonts/Vazir-Bold.eot');
-    src: url('../fonts/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Vazir-Bold.woff2') format('woff2'),
-         url('../fonts/Vazir-Bold.woff') format('woff'),
-         url('../fonts/Vazir-Bold.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
+  font-family: Vazir-bold;
+  src: url("../fonts/Vazir-Bold.eot");
+  src: url("../fonts/Vazir-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Vazir-Bold.woff2") format("woff2"),
+    url("../fonts/Vazir-Bold.woff") format("woff"),
+    url("../fonts/Vazir-Bold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
 }
-body{
-    font-family: 'Vazir-bold';
+body {
+  direction: rtl;
 }
+
+ul,
+li {
+  list-style: none;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* Start Header */
+header {
+  background-color: #323e42;
+  padding: 15px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.count-notes {
+  width: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #7954a1;
+  color: #323e42;
+  text-align: center;
+}
+
+.img-notes {
+  width: 50px;
+  height: 50px;
+}
+
+/* End Header */
+
+/* Start Add Note Section */
+.add-notes {
+  background-color: #efdcf9;
+  position: relative;
+}
+
+.add-notes form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  border: 1px solid silver;
+  width: 70%;
+  height: 60%;
+}
+
+.btn-add {
+  position: fixed;
+  bottom: 0;
+  background-color: #7954a1;
+  padding: 8px;
+  color: #efdcf9;
+  cursor: pointer;
+  width: 50%;
+  transition: all 0.2s;
+  font-size: medium;
+}
+
+/* End Add Note Section */
+
+/* Start List Notes Section */
+.ul-notes {
+  padding: 1rem;
+}
+
+.note {
+  background-color: #c55ffc;
+  margin: 5px;
+  border-radius: 2px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #323e42;
+}
+
+.note .fa {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.note .fa:hover {
+  color: #db1f48;
+}
+/* End List Notes Section */
+
+/* Start Responsive */
+@media only screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  .btn-add {
+    width: 100%;
+    position: absolute;
+  }
+  .list-notes{
+    order: 1;
+  }
+  .img-notes {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* End Responsive */
