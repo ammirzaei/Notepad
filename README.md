@@ -1,2 +1,2 @@
 # Notepad
-دفترچه یادداشت با حافظه مرورگر
+Notepad with browser localStorage
